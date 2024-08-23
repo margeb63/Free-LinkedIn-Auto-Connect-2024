@@ -1,0 +1,100 @@
+#linkedin-auto-connect-overlay {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 1);
+  z-index: 9999;
+  color: white !important;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  overflow-y: auto;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: move;
+}
+
+#linkedin-auto-connect-overlay h1 {
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 10px;
+  color: white;
+}
+
+#linkedin-auto-connect-overlay hr {
+  background-color: #fff;
+  margin: 0;
+}
+
+#linkedin-auto-connect-overlay p {
+  font-size: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: white;
+}
+
+#linkedin-auto-connect-overlay label,
+#linkedin-auto-connect-overlay textarea {
+  color: white;
+}
+
+#linkedin-auto-connect-overlay #instructions-container {
+  margin-bottom: 10px;
+  color: white;
+}
+
+#linkedin-auto-connect-overlay #instructions-button {
+  background: none;
+  border: none;
+  color: #8bc34a;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  margin: 10px 0;
+  text-align: left;
+}
+
+#linkedin-auto-connect-overlay #instructions-content {
+  display: none;
+  font-size: 10px;
+  color: white;
+}
+
+#linkedin-auto-connect-overlay textarea,
+#linkedin-auto-connect-overlay input {
+  color: white;
+  border: 1px solid #fff;
+  width: 100%;
+}
+
+#linkedin-auto-connect-overlay #linkedin-log {
+  margin-top: 20px;
+  border: 1px solid #fff;
+  padding: 10px;
+  height: 150px;
+  overflow-y: scroll;
+  color: yellow;
+  font-size: 10px;
+}
+
+#linkedin-auto-connect-overlay button {
+  width: 100%;
+  color: yellow;
+  padding: 5px;
+  border: 1px solid #ccc;
+  background-color: #673ab7;
+}
+
+#linkedin-auto-connect-overlay #stop-button {
+  background-color: #f44336;
+  color: #fff;
+}
+
+#linkedin-auto-connect-overlay #footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#linkedin-auto-connect-overlay a {
+  color: #8bc34a;
+}
