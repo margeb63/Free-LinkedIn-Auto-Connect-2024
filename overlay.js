@@ -121,11 +121,27 @@ function getRandomDelay(min = 6000, max = 8000) {
 
 // Function to open and close a LinkedIn profile
 async function openAndCloseProfile(url) {
-  const newTab = window.open(url, "_blank");
-  logMessage(`Opened profile url`);
-  await delay(3000); // Wait for 3 seconds
-  newTab.close();
-  logMessage(`Closed profile url`);
+  return new Promise((resolve, reject) => {
+    chrome.runtime.sendMessage(
+      { action: "openAndCloseProfile", url: url },
+      (response) => {
+        if (chrome.runtime.lastError) {
+          logMessage(`Error: ${chrome.runtime.lastError.message}`);
+          reject(new Error(chrome.runtime.lastError.message));
+        } else if (response && response.success) {
+          logMessage(`Profile opened and closed in the background`);
+          resolve();
+        } else {
+          logMessage(
+            `Failed to open and close profile: ${
+              response.error || "Unknown error"
+            }`
+          );
+          reject(new Error(response.error || "Unknown error"));
+        }
+      }
+    );
+  });
 }
 
 // Function to open and close a LinkedIn profile
@@ -179,7 +195,7 @@ async function sendConnectionRequests(requestCount) {
         continue;
       }
 
-      // Open profile in new tab, wait, and close
+      // Open profile in new tab, wait, and close only if connect button is present
       if (profileLink) {
         await openAndCloseProfile(profileLink);
       }
@@ -275,6 +291,7 @@ async function sendConnectionRequests(requestCount) {
 
   logMessage(`Action completed. Total requests sent: ${totalSentCount}`);
 }
+
 // Function to add drag-and-drop functionality
 function makeOverlayDraggable(overlay) {
   let isDragging = false;

@@ -3,7 +3,10 @@
   "name": "Free LinkedIn Auto-Connect 2024",
   "version": "1.0",
   "description": "Create free and automatic contact requests on LinkedIn using people's first names.",
-  "permissions": ["activeTab"],
+  "permissions": ["tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "matches": ["*://www.linkedin.com/*"],
