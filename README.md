@@ -4,4 +4,4 @@ Read here, how to install Chrome extensions manually from GitHub: https://dev.to
 
 Have fun with it and feel free to send me suggestions for improvement.
 
-![alt text]([http://url/to/img.png](https://linksmithy.com/linkedin/ededede.jpg))li
+![image]([https://linksmithy.com/linkedin/ededede.jpg]))
