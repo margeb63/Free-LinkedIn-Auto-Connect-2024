@@ -119,7 +119,16 @@ function getRandomDelay(min = 6000, max = 8000) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Function to send connection requests
+// Function to open and close a LinkedIn profile
+async function openAndCloseProfile(url) {
+  const newTab = window.open(url, "_blank");
+  logMessage(`Opened profile url`);
+  await delay(3000); // Wait for 3 seconds
+  newTab.close();
+  logMessage(`Closed profile url`);
+}
+
+// Function to open and close a LinkedIn profile
 async function sendConnectionRequests(requestCount) {
   const messageTemplate = document.getElementById("linkedin-message").value;
   let totalSentCount = 0;
@@ -159,6 +168,8 @@ async function sendConnectionRequests(requestCount) {
         ? nameElement.innerText.split(" ")[0]
         : "Colleague";
 
+      const profileLink = container.querySelector("a.app-aware-link")?.href;
+
       const connectButton = container.querySelector(
         'button.artdeco-button[aria-label^="Invite"][aria-label$="to connect"]'
       );
@@ -166,6 +177,11 @@ async function sendConnectionRequests(requestCount) {
       if (!connectButton) {
         logMessage(`No connect button found for ${firstName}. Skipping.`);
         continue;
+      }
+
+      // Open profile in new tab, wait, and close
+      if (profileLink) {
+        await openAndCloseProfile(profileLink);
       }
 
       const personalizedMessage = messageTemplate.replace(
