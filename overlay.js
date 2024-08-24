@@ -234,6 +234,8 @@ async function sendConnectionRequests(requestCount) {
 
     // Check if we've processed all profiles on the current page
     if (processedOnThisPage === profileContainers.length) {
+      console.log("No more Connect-Buttons.");
+      logMessage("No more Connect-Buttons.");
       const nextButton = document.querySelector(
         'button.artdeco-pagination__button--next[aria-label="Next"]'
       );
