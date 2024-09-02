@@ -33,8 +33,8 @@ if (typeof window.overlayVisible === "undefined") {
     window.overlay.id = "linkedin-auto-connect-overlay";
     window.overlay.innerHTML = `
       <div id="overlay-header" style="display: flex; justify-content: space-between; align-items: center; padding: 5px;">
-        <h1 style="margin: 0;">LinkedIn Auto-Connect Tool 2024</h1>
-        <button id="close-overlay-button" style="background: none; border: none; font-size: 18px; cursor: pointer;">&#10006;</button>
+        <h1 style="margin: 0;flex: 9;">LinkedIn Auto-Connect Tool 2024</h1>
+        <button id="close-overlay-button" style="flex: 1;background: none; border: none; font-size: 18px; cursor: pointer;">&#10006;</button>
       </div>
       <hr />
       <div id="instructions-container">
