@@ -28,3 +28,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     return true; // Um die asynchrone sendResponse zu ermöglichen
   }
 });
+
+chrome.action.onClicked.addListener((tab) => {
+  // Überprüfe, ob die aktuelle Seite LinkedIn ist
+  if (tab.url.includes("linkedin.com")) {
+    // Injektion des Skripts, um das Overlay zu toggeln
+    chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ["overlay.js"], // Lädt das gesamte Skript erneut
+    });
+  } else {
+    // Zeige eine Warnung an, wenn der Benutzer nicht auf LinkedIn ist
+    alert("Please navigate to LinkedIn to use this extension.");
+  }
+});
